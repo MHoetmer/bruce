@@ -18,12 +18,8 @@
     </div>
 
     <div class="controls">
-      <a class="toggle-original" href="#" @click.prevent="showingOriginal = !showingOriginal">
-        Toggle Original Image
-      </a>
       <a class="shuffle" href="#" @click.prevent="shuffleTiles">Reshuffle</a>
       <a class="reset" href="#" @click.prevent="reset">Reset</a>
-      <a class="restart" href="#" @click.prevent="restart">New Game</a>
     </div>
   </div>
 </template>
@@ -90,17 +86,17 @@ export default {
 
   methods: {
     start ({ image, size }) {
-      this.size = size
-      this.image = image
+      this.size = {'horizontal': 4, 'vertical': 4}
+      this.image = '/static/img/bruc-m.8b7188a.jpeg'
       // detect the width and height of the frame
       const img = new Image()
       img.onload = () => {
-        this.tileSize.width = Math.floor(img.width / size.horizontal)
-        this.tileSize.height = Math.floor(img.height / size.vertical)
+        this.tileSize.width = Math.floor(img.width / 4)
+        this.tileSize.height = Math.floor(img.height / 4)
         this.generateTiles()
         this.shuffleTiles()
       }
-      img.src = image
+      img.src = '/static/img/bruc-m.8b7188a.jpeg'
     },
 
     /**

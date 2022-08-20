@@ -1,16 +1,12 @@
 <template>
   <div id="app">
     <header>
-      <h1>Meloen chall</h1>
+      <h1>Win een fles</h1>
     </header>
 
     <Board ref="board" v-show="playing" @restart="restart" />
     <OptionsPane ref="optionsPane" @gameStart="start" v-show="!playing" />
 
-    <footer>
-      Built with <a href="https://vuejs.org">Vue</a> •
-      <a href="https://github.com/phanan/slider-puzzle">GitHub</a>
-    </footer>
   </div>
 </template>
 
@@ -24,7 +20,9 @@ export default {
     Board,
     OptionsPane
   },
-
+  mounted: function () {
+    this.start([{'image': '/static/img/bruc-m.8b7188a.jpeg', 'width': 400, 'height': 400, 'size': {'horizontal': 4, 'vertical': 4}}])
+  },
   data () {
     return {
       playing: false
@@ -33,6 +31,7 @@ export default {
 
   methods: {
     start (...args) {
+      console.log(...args)
       this.playing = true
       this.$refs.board.start(...args)
     },
