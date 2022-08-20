@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <h1>Slider Puzzle</h1>
+      <h1>Meloen chall</h1>
     </header>
 
     <Board ref="board" v-show="playing" @restart="restart" />

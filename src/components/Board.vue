@@ -210,16 +210,16 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
+    height: 40%;
+    width: 40%;
   }
 
   p.win {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
+    height: 40%;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;

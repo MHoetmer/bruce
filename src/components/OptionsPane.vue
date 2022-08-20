@@ -1,6 +1,6 @@
 <template>
   <form id="optionsForm" @submit.prevent="start">
-    <img :src="image" v-if="image">
+    <img :src="image" v-if="image" with="400" height="400">
     <div>
       <div>
         <label for="file">
@@ -22,14 +22,15 @@
 
 <script>
 import loadImage from 'blueimp-load-image'
+import board from '../assets/bruc-m.jpeg'
 
 export default {
   data () {
     return {
-      image: null,
+      image: board,
       size: {
-        horizontal: 3,
-        vertical: 3
+        horizontal: 4,
+        vertical: 4
       }
     }
   },
@@ -41,7 +42,7 @@ export default {
         return
       }
 
-      loadImage(e.target.files[0], canvas => {
+      loadImage(board, canvas => {
         this.image = canvas.toDataURL()
       }, {
         maxWidth: 600,
@@ -58,7 +59,9 @@ export default {
     start () {
       this.$emit('gameStart', {
         image: this.image,
-        size: this.size
+        size: this.size,
+        width: 600,
+        height: 600
       })
     },
 
